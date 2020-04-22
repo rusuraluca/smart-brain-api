@@ -23,6 +23,7 @@ const app = express();
 
 app.use(cors())
 app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify({ hello: "world, it's working" }));
@@ -31,6 +32,7 @@ app.get('/ping', (req, res)=> {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify({ ping: 'pong' }));
 });
+
 //app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
