@@ -12,7 +12,7 @@ const image = require('./controllers/image');
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
+    host : 'postgresql-angular-64706',
     user : 'rusuraluca',
     password : '',
     database : 'smartbrain-db'
@@ -32,7 +32,6 @@ app.get('/ping', (req, res)=> {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify({ ping: 'pong' }));
 });
-
 //app.get('/', (req, res)=> { res.send(db.users) })
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
